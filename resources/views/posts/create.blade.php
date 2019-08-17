@@ -69,7 +69,7 @@
                     @if($tags->count() > 0)
                         <label for="tags">Tags</label>
 
-                        <select name="tags[]" id="tag" class="form-control tag-selector" multiple>
+                        <select name="tags[]" id="tag" class="form-control tag-selector " multiple>
                             @foreach($tags as $tag)
                                 <option value="{{$tag->id}}"
                                     @if(isset($post))
@@ -111,7 +111,7 @@
 @endsection
 
 @section('css')
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.1.1/trix.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/css/select2.min.css" rel="stylesheet" />
 @endsection
