@@ -1,8 +1,9 @@
 <?php
+use App\Http\Controllers\Blog\PostsController;
+//Frontend Part
+Route::get('/', 'WelcomeController@index')->name('welcome');
+Route::get('blog/posts/{post}', [PostsController::class, 'show'])->name('blog.show');
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Auth::routes();
 

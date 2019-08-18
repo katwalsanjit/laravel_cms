@@ -55,7 +55,8 @@ class PostsController extends Controller
             'post_content'  =>$request->post_content,
             'published_at'  =>$request->published_at,
             'image'         =>$image,
-            'category_id'   => $request->category,
+            'category_id'   =>$request->category,
+            'user_id'       =>auth()->user()->id,
         ]);
 
         if ($request->tags){
@@ -100,11 +101,11 @@ class PostsController extends Controller
      */
     public function update(UpdatePostRequest $request, Post $post)
     {
-        $data = $request->only(['title', 'description', 'published_at', 'contet']);
+        $data = $request->only(['title', 'description', 'published_at', 'post_content']);
         //check if new image
         if ($request->hasFile('image')){
             //update the image
-            $image = $request->image->store('post');
+            $image = $request->image->store('posts');
 
             //delete old one
             $post->deleteImage();
